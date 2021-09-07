@@ -12,6 +12,11 @@
     padding-bottom: 1rem;
   }
 
+  .error{
+    color: red;
+    font-weight: bold;
+  }
+
   /* HEADER */
 
   .hero {
