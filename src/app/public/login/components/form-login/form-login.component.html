@@ -1,0 +1,24 @@
+<div class="container">
+    <form>
+        <div class="form-floating mb-1">
+            <input type="text" class="form-control" id="fuserName" placeholder="Nombre de Usuario">
+            <label for="fuserName">Nombre de Usuario</label>
+        </div>
+        <div class="form-floating mb-1">
+            <input type="password" class="form-control" id="fpassword" placeholder="Contraseña">
+            <label for="fpassword">Contraseña</label>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-success"><i class="far fa-check-circle"></i> Ingresar</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-danger" (click)="onCancell()">
+                    <i class="fas fa-ban"></i> Cancelar
+                </button>
+            </div>
+        </div>
+    </form>
+    
+</div>
