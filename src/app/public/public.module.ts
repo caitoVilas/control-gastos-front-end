@@ -12,6 +12,7 @@ import { LoginComponent } from './login/containers/login/login.component';
 import { HeaderComponent } from './home/components/header/header.component';
 import { FormRegisterComponent } from './register/components/form-register/form-register.component';
 import { FormLoginComponent } from './login/components/form-login/form-login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -31,7 +32,15 @@ import { FormLoginComponent } from './login/components/form-login/form-login.com
   imports: [
     CommonModule,
     PublicRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    ReactiveFormsModule
+  ],
+  providers: [
+    ReactiveFormsModule
   ]
+  
 })
 export class PublicModule { }

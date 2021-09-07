@@ -1,21 +1,50 @@
 <div class="container">
-    <form>
+    <form [formGroup]="frmRegister" (ngSubmit)="onSubmit($event)" novalidate>
         <div class="form-floating mb-1">
-            <input type="text" class="form-control" id="fuserName" placeholder="Nombre de Usuario">
+            <input type="text" 
+                   class="form-control" 
+                   id="fuserName" 
+                   placeholder="Nombre de Usuario"
+                   formControlName="userName">
             <label for="fuserName">Nombre de Usuario</label>
+            <div *ngIf="frmRegister.get('userName').errors && frmRegister.get('userName').touched">
+                <p class="error" *ngIf="frmRegister.get('userName').hasError('required')">
+                    <strong>El Nombre de usuario es requerido <i class="fas fa-exclamation-triangle"></i></strong>
+                </p>
+            </div>
         </div>
         <div class="form-floating mb-1">
-            <input type="text" class="form-control" id="femail" placeholder="email">
+            <input type="text" 
+                   class="form-control" 
+                   id="femail" 
+                   placeholder="email"
+                   formControlName="email">
             <label for="femail">email</label>
+            <div *ngIf="frmRegister.get('email').errors && frmRegister.get('email').touched">
+                <p class="error" *ngIf="frmRegister.get('email').hasError('required')">
+                    <strong>El email es requerido <i class="fas fa-exclamation-triangle"></i></strong>
+                </p>
+            </div>
         </div>
         <div class="form-floating mb-1">
-            <input type="password" class="form-control" id="fpassword" placeholder="Contraseña">
+            <input type="password" 
+                   class="form-control" 
+                   id="fpassword" 
+                   placeholder="Contraseña"
+                   formControlName="password">
             <label for="fpassword">Contraseña</label>
+            <div *ngIf="frmRegister.get('password').errors && frmRegister.get('password').touched">
+                <p class="error" *ngIf="frmRegister.get('password').hasError('required')">
+                    <strong>La contraseña es requerida <i class="fas fa-exclamation-triangle"></i></strong>
+                </p>
+            </div>
         </div>
         <hr>
         <div class="row">
             <div class="col">
-                <button class="btn btn-outline-success"><i class="far fa-check-circle"></i> Registrar</button>
+                <button class="btn btn-outline-success" type="submit" [disabled]="!frmRegister.valid">
+                    <i class="far fa-check-circle"></i> Registrar
+                </button>
             </div>
             <div class="col">
                 <button class="btn btn-outline-danger" (click)="onCancell()">
